@@ -15,7 +15,7 @@ Project Boost is a 3D game where you control a rocket player character. You fly 
 
 ## Development Tools Used:
 
-*   Godot Engine
+*   Godot Engine 4.3
 
 ## Course Resources
 
