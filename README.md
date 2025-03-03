@@ -6,14 +6,12 @@ A 3D game built in Godot.
 
 Project Boost is a 3D game where you control a rocket player character. You fly through levels using forces, accelerate, and rotate around obstacles. Crash into an obstacle and you die, having to restart the level.
 
-This is a full project made using Godot, from the ground up. We are making our own scripts to control the rocket.
+## Learning Outcomes
 
-## Features
-
-*   **Force-Based Movement:** The player character uses forces to move through the level, accelerating and rotating around obstacles.
-*   **Collision Detection:** Crashes into obstacles result in death and restart the level.
-*   **Level Progression:** Reach goals to advance to new levels.
-*   **Full Game Export:** The project can be exported as a standalone game for distribution.
+*   **Force-Based Movement:** Implement a force-based movement system to enable the player character to fly, accelerate, and rotate within a 3D environment.
+*   **Collision Detection:** Detect collisions between the player character and obstacles, triggering game events such as death and level restarts.
+*   **Manage Level Progression:** Design a system that allows players to progress through a series of levels by reaching defined goals. This will also cover how to Create a series of levels.
+*   **Audio and Particle Effects:**  Integrate audio effects and particle systems to enhance the game's feedback and visual appeal.
 
 ## Development Tools Used:
 
@@ -25,13 +23,6 @@ This Project was created while following the Godot Complete 3D course by GameDev
 
 *   Course Link: [Godot Complete 3D](https://www.gamedev.tv/courses/godot-complete-3d)
 
-## Author:
+## Author of Course:
 
-*   Bramwell Williams ([GameDev.tv](https://www.gamedev.tv))
-
-## Covered Topics
-
-*   Collision Handling
-*   Audio Particles
-*   Controlling characters with scripts
-*   Creating series of levels
+*   Bramwell Williams
