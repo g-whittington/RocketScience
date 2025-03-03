@@ -1,13 +1,17 @@
-extends Node3D
+extends RigidBody3D
 
+var flight_force := 1000.0
+var rotation_force := 100.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("fly"):
-		position.y += delta
+		# basis here is a local value of the y axis that will change 
+		# the shape's actally y, and not just apply a general up force
+		apply_central_force(basis.y * delta * flight_force)
 
 	if Input.is_action_pressed("rotate_left"):
-		rotate_z(delta)
+		apply_torque(Vector3(0, 0, rotation_force * delta))
 		
 	if Input.is_action_pressed("rotate_right"):
-		rotate_z(-delta)
+		apply_torque(Vector3(0, 0, -rotation_force * delta))
