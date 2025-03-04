@@ -1,7 +1,12 @@
 extends RigidBody3D
 
-var flight_force := 1000.0
-var rotation_force := 100.0
+
+# there are different export types
+# double hash does documentation that shows in inspector
+## How much vertial force to apply when moving
+@export_range(750, 3000) var flight_force: float = 1000.0
+## How much horizonal force to apply when rotating
+@export var rotation_force: float = 100.0
 
 # called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
