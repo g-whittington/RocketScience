@@ -27,18 +27,17 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	# way to win the game
 	if body.is_in_group("Goal"):
-		complete_level()
+		# landing pads will have this attribute
+		complete_level(body.file_path)
 	# die if touch floor
 	if body.is_in_group("Hazard"):
 		crash_sequence()
 
 # handle Player touching floor
 func crash_sequence() -> void:
-	print("KABOOM!!")
 	# call_defered to not remove a CollisionObject node during a physics callback 
 	get_tree().call_deferred("reload_current_scene")
 	
 # handle Plyaer touching landing pad
-func complete_level() -> void:
-	print("YOU WIN!")
-	get_tree().quit()
+func complete_level(next_level: String) -> void:
+	get_tree().call_deferred("change_scene_to_file", next_level)
