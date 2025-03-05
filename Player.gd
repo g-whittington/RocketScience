@@ -8,6 +8,8 @@ extends RigidBody3D
 ## How much horizonal force to apply when rotating
 @export var rotation_force: float = 100.0
 
+var is_transistioning: bool = false
+
 # called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
@@ -25,19 +27,37 @@ func _process(delta: float) -> void:
 # using this as collision dection with the player
 # have to opt in to rigid body collsion like this in: Solver -> Contact Monitor
 func _on_body_entered(body: Node) -> void:
-	# way to win the game
-	if body.is_in_group("Goal"):
-		# landing pads will have this attribute
-		complete_level(body.file_path)
-	# die if touch floor
-	if body.is_in_group("Hazard"):
-		crash_sequence()
+	if !is_transistioning:
+		# way to win the game
+		if body.is_in_group("Goal"):
+			# landing pads will have this attribute
+			complete_level(body.file_path)
+		# die if touch floor
+		if body.is_in_group("Hazard"):
+			crash_sequence()
 
 # handle Player touching floor
 func crash_sequence() -> void:
-	# call_defered to not remove a CollisionObject node during a physics callback 
-	get_tree().call_deferred("reload_current_scene")
+	print("KABOOM!!!")
+	
+	# not allow the player to keep moving after death
+	set_process(false)
+	
+	# use tweens for proper callback sequences 
+	is_transistioning = true
+	var tween: Tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().reload_current_scene)
 	
 # handle Plyaer touching landing pad
 func complete_level(next_level: String) -> void:
-	get_tree().call_deferred("change_scene_to_file", next_level)
+	print("You Win!")
+	
+	# not allow the player to keep moving after death
+	set_process(false)
+	
+	# use tweens for proper callback sequences 
+	is_transistioning = true
+	var tween: Tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level))
