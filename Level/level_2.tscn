@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://3s22e15kihhv"]
+[gd_scene load_steps=10 format=3 uid="uid://c604y5xqmxa3h"]
 
-[ext_resource type="Script" uid="uid://c3eahj4kdhgyb" path="res://Level/landing_pad.gd" id="1_rjurc"]
+[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_rjurc"]
 [ext_resource type="PackedScene" uid="uid://dg7s6c4a4u1q4" path="res://player.tscn" id="2_mpmgm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5mxr6"]
@@ -61,7 +61,7 @@ use_collision = true
 size = Vector3(2, 0.5, 2)
 material = SubResource("StandardMaterial3D_81rcn")
 script = ExtResource("1_rjurc")
-file_path = "uid://dew4iqmigo8yd"
+file_path = "res://Level/level_3.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 4.2, 7.91)
